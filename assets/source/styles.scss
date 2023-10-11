@@ -1,0 +1,203 @@
+@import "variables";
+html {
+  font-size: $Font-size;
+  font-family: "Red Hat Text", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../images/pattern-hills.svg") no-repeat bottom / contain,
+    url("../images/bg-stars.svg") no-repeat top center / cover;
+  background-color: $Very-dark-blue;
+  height: 100vh;
+  padding: 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  main {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1 {
+      color: $White;
+      word-spacing: 0.5rem;
+      letter-spacing: 0.3rem;
+      text-align: center;
+      font-size: 0.99rem;
+    }
+    .timmer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 15px;
+      margin-top: 10%;
+      .timmer-content {
+        width: 25%;
+        .timmer-wrapper {
+          display: flex;
+          flex-direction: column;
+          height: 58px;
+          position: relative;
+          justify-content: space-between;
+          .timmer-card {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 28.5px;
+            overflow: hidden;
+            background-color: $Dark-desaturated-blue;
+            transition: all 0.3s ease;
+            .timmer-digit {
+              color: $Soft-red;
+              text-align: center;
+              vertical-align: middle;
+              font-size: 2.125rem;
+              position: relative;
+              margin-bottom: 2px;
+              .number {
+                position: absolute;
+                left: 0;
+                right: 0;
+              }
+              .number-1 {
+                bottom: -48px;
+              }
+              .number-2 {
+                top: -19px;
+              }
+            }
+
+            &:nth-child(1) {
+              border-radius: 10px 10px 0 0;
+              opacity: 0.8;
+              transform-origin: bottom;
+              top: 0;
+            }
+            &:nth-child(2) {
+              border-radius: 0 0 10px 10px;
+              transform-origin: top;
+              bottom: 0;
+            }
+          }
+        }
+        .timmer-title {
+          color: $Grayish-blue;
+          font-size: 0.525rem;
+          letter-spacing: 0.2rem;
+          text-align: center;
+          display: block;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  footer {
+    .social-nav {
+      margin-bottom: 50px;
+      ul {
+        list-style: none;
+        display: block;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        li {
+          display: inline-block;
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: contain;
+            &:hover {
+              svg {
+                path {
+                  transition: all 0.2s ease;
+                  fill: $Soft-red !important;
+                }
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            margin: 0 35px;
+          }
+        }
+      }
+    }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      a {
+        color: hsl(228, 45%, 44%);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    main {
+      margin-top: 5%;
+      h1 {
+        font-size: 2rem;
+      }
+      .timmer {
+        width: 80%;
+        margin: 10% auto 0;
+      }
+    }
+    footer {
+      .attribution {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    main {
+      h1 {
+        font-size: 2.3rem;
+      }
+      .timmer {
+        width: 45%;
+        margin: 5% auto 0;
+        .timmer-content {
+          .timmer-wrapper {
+            height: 90px;
+            .timmer-card {
+              height: 44.3px;
+              .timmer-digit {
+                font-size: 3.125rem;
+                .number-1 {
+                  bottom: -73px;
+                }
+                .number-2 {
+                  top: -30px;
+                }
+              }
+            }
+          }
+          .timmer-title {
+            font-size: 0.825rem;
+            letter-spacing: 0.3rem;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    footer{
+      margin-bottom: 10px;
+    }
+  }
+}
