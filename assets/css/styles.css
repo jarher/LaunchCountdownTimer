@@ -182,6 +182,7 @@ body footer .attribution a {
 @media (min-width: 1024px) {
   body main h1 {
     font-size: 1.3rem;
+    margin-top: 8%;
   }
   body main .timer {
     width: 35%;
