@@ -1,6 +1,7 @@
 html {
   font-size: 14px;
   font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
 }
 
 body {
@@ -28,63 +29,86 @@ body main h1 {
   text-align: center;
   font-size: 0.99rem;
 }
-body main .timmer {
+body main .timer {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   gap: 15px;
   margin-top: 10%;
 }
-body main .timmer .timmer-content {
+body main .timer .timer-content {
   width: 25%;
 }
-body main .timmer .timmer-content .timmer-wrapper {
+body main .timer .timer-content .timer-wrapper {
   display: flex;
   flex-direction: column;
   height: 58px;
   position: relative;
   justify-content: space-between;
+  overflow: hidden;
 }
-body main .timmer .timmer-content .timmer-wrapper .timmer-card {
+body main .timer .timer-content .timer-wrapper .notch {
+  background-color: hsl(234, 17%, 12%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  z-index: 999;
+}
+body main .timer .timer-content .timer-wrapper .notch:nth-of-type(1) {
+  left: -5px;
+}
+body main .timer .timer-content .timer-wrapper .notch:nth-of-type(2) {
+  right: -5px;
+}
+body main .timer .timer-content .timer-wrapper .timer-card {
+  height: 28.5px;
+  overflow: hidden;
+  position: relative;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(3) {
+  opacity: 0.8;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(3) .timer-digit {
+  border-radius: 5px 5px 0 0;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(3) .timer-digit span {
+  margin-top: 9px;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(3) .timer-digit:nth-child(1) {
+  transform-origin: bottom;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(4) .timer-digit {
+  border-radius: 0 0 5px 5px;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(4) .timer-digit span {
+  margin-top: -20px;
+}
+body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(4) .timer-digit:nth-child(2) {
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+body main .timer .timer-content .timer-wrapper .timer-card .timer-digit {
   position: absolute;
   left: 0;
   right: 0;
-  height: 28.5px;
-  overflow: hidden;
-  background-color: hsl(236, 21%, 26%);
-  transition: all 0.3s ease;
-}
-body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit {
+  top: 0;
+  bottom: 0;
   color: hsl(345, 95%, 68%);
   text-align: center;
   vertical-align: middle;
   font-size: 2.125rem;
-  position: relative;
-  margin-bottom: 2px;
-}
-body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit .number {
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit .number-1 {
-  bottom: -48px;
-}
-body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit .number-2 {
-  top: -19px;
-}
-body main .timmer .timmer-content .timmer-wrapper .timmer-card:nth-child(1) {
-  border-radius: 10px 10px 0 0;
-  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+  background-color: hsl(236, 21%, 26%);
   transform-origin: bottom;
-  top: 0;
 }
-body main .timmer .timmer-content .timmer-wrapper .timmer-card:nth-child(2) {
-  border-radius: 0 0 10px 10px;
-  transform-origin: top;
-  bottom: 0;
+body main .timer .timer-content .timer-wrapper .timer-card .timer-digit span {
+  display: block;
 }
-body main .timmer .timmer-content .timmer-title {
+body main .timer .timer-content .timer-title {
   color: hsl(237, 18%, 59%);
   font-size: 0.525rem;
   letter-spacing: 0.2rem;
@@ -139,9 +163,15 @@ body footer .attribution a {
   body main h1 {
     font-size: 2rem;
   }
-  body main .timmer {
+  body main .timer {
     width: 80%;
     margin: 10% auto 0;
+  }
+  body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(1) .timer-digit span {
+    margin-top: 9px;
+  }
+  body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(1) .timer-digit:nth-child(1) {
+    transform-origin: bottom;
   }
   body footer .attribution {
     flex-direction: row;
@@ -151,28 +181,28 @@ body footer .attribution a {
 }
 @media (min-width: 1024px) {
   body main h1 {
-    font-size: 2.3rem;
+    font-size: 1.3rem;
   }
-  body main .timmer {
-    width: 45%;
+  body main .timer {
+    width: 35%;
     margin: 5% auto 0;
   }
-  body main .timmer .timmer-content .timmer-wrapper {
+  body main .timer .timer-content .timer-wrapper {
     height: 90px;
   }
-  body main .timmer .timmer-content .timmer-wrapper .timmer-card {
-    height: 44.3px;
+  body main .timer .timer-content .timer-wrapper .timer-card {
+    height: 45.3px;
   }
-  body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit {
+  body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(3) .timer-digit span {
+    margin-top: 14px;
+  }
+  body main .timer .timer-content .timer-wrapper .timer-card:nth-of-type(4) .timer-digit span {
+    margin-top: -30px;
+  }
+  body main .timer .timer-content .timer-wrapper .timer-card .timer-digit {
     font-size: 3.125rem;
   }
-  body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit .number-1 {
-    bottom: -73px;
-  }
-  body main .timmer .timmer-content .timmer-wrapper .timmer-card .timmer-digit .number-2 {
-    top: -30px;
-  }
-  body main .timmer .timmer-content .timmer-title {
+  body main .timer .timer-content .timer-title {
     font-size: 0.825rem;
     letter-spacing: 0.3rem;
     margin-top: 20px;

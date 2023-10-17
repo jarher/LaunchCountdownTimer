@@ -2,6 +2,7 @@
 html {
   font-size: $Font-size;
   font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
 }
 body {
   margin: 0;
@@ -27,62 +28,86 @@ body {
       text-align: center;
       font-size: 0.99rem;
     }
-    .timmer {
+    .timer {
       display: flex;
       justify-content: space-between;
       flex-wrap: nowrap;
       gap: 15px;
       margin-top: 10%;
-      .timmer-content {
+      .timer-content {
         width: 25%;
-        .timmer-wrapper {
+        .timer-wrapper {
           display: flex;
           flex-direction: column;
           height: 58px;
           position: relative;
           justify-content: space-between;
-          .timmer-card {
+          overflow: hidden;
+          .notch {
+            background-color: $Very-dark-mostly-blue;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
             position: absolute;
-            left: 0;
-            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            z-index: 999;
+            &:nth-of-type(1) {
+              left: -5px;
+            }
+            &:nth-of-type(2) {
+              right: -5px;
+            }
+          }
+          .timer-card {
             height: 28.5px;
             overflow: hidden;
-            background-color: $Dark-desaturated-blue;
-            transition: all 0.3s ease;
-            .timmer-digit {
+            position: relative;
+            &:nth-of-type(3) {
+              opacity: 0.8;
+              .timer-digit {
+                border-radius: 5px 5px 0 0;
+                span {
+                  margin-top: 9px;
+                }
+                &:nth-child(1) {
+                  transform-origin: bottom;
+                }
+              }
+            }
+            &:nth-of-type(4) {
+              .timer-digit {
+                border-radius: 0 0 5px 5px;
+                span {
+                  margin-top: -20px;
+                }
+                &:nth-child(2) {
+                  transform-origin: top;
+                  transform: rotateX(-90deg);
+                }
+              }
+            }
+            .timer-digit {
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
               color: $Soft-red;
               text-align: center;
               vertical-align: middle;
               font-size: 2.125rem;
-              position: relative;
-              margin-bottom: 2px;
-              .number {
-                position: absolute;
-                left: 0;
-                right: 0;
-              }
-              .number-1 {
-                bottom: -48px;
-              }
-              .number-2 {
-                top: -19px;
-              }
-            }
-
-            &:nth-child(1) {
-              border-radius: 10px 10px 0 0;
-              opacity: 0.8;
+              transition: all 0.3s ease-in-out;
+              background-color: $Dark-desaturated-blue;
               transform-origin: bottom;
-              top: 0;
-            }
-            &:nth-child(2) {
-              border-radius: 0 0 10px 10px;
-              transform-origin: top;
-              bottom: 0;
+              span {
+                display: block;
+              }
             }
           }
         }
-        .timmer-title {
+        .timer-title {
           color: $Grayish-blue;
           font-size: 0.525rem;
           letter-spacing: 0.2rem;
@@ -148,9 +173,25 @@ body {
       h1 {
         font-size: 2rem;
       }
-      .timmer {
+      .timer {
         width: 80%;
         margin: 10% auto 0;
+        .timer-content {
+          .timer-wrapper {
+            .timer-card {
+              &:nth-of-type(1) {
+                .timer-digit {
+                  span {
+                    margin-top: 9px;
+                  }
+                  &:nth-child(1) {
+                    transform-origin: bottom;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     footer {
@@ -167,28 +208,36 @@ body {
   body {
     main {
       h1 {
-        font-size: 2.3rem;
+        font-size: 1.3rem;
       }
-      .timmer {
-        width: 45%;
+      .timer {
+        width: 35%;
         margin: 5% auto 0;
-        .timmer-content {
-          .timmer-wrapper {
+        .timer-content {
+          .timer-wrapper {
             height: 90px;
-            .timmer-card {
-              height: 44.3px;
-              .timmer-digit {
+            .timer-card {
+              height: 45.3px;
+              &:nth-of-type(3) {
+                .timer-digit {
+                  span {
+                    margin-top: 14px;
+                  }
+                }
+              }
+              &:nth-of-type(4) {
+                .timer-digit {
+                  span {
+                    margin-top: -30px;
+                  }
+                }
+              }
+              .timer-digit {
                 font-size: 3.125rem;
-                .number-1 {
-                  bottom: -73px;
-                }
-                .number-2 {
-                  top: -30px;
-                }
               }
             }
           }
-          .timmer-title {
+          .timer-title {
             font-size: 0.825rem;
             letter-spacing: 0.3rem;
             margin-top: 20px;
@@ -196,7 +245,7 @@ body {
         }
       }
     }
-    footer{
+    footer {
       margin-bottom: 10px;
     }
   }
