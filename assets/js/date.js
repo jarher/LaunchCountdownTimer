@@ -1,5 +1,5 @@
 export class dates {
-  eightDaysInMilliseconds = 777600000;
+  eightDaysInMilliseconds = 1209600000;
   // Milliseconds for the calculations
   MILLISECONDS_OF_A_SECOND = 1000;
   MILLISECONDS_OF_A_MINUTE = this.MILLISECONDS_OF_A_SECOND * 60;
